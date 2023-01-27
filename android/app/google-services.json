@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762666484875",
+    "project_id": "online-vegetable-ca969",
+    "storage_bucket": "online-vegetable-ca969.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762666484875:android:6bebd3f4476e0a3c1b808e",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762666484875-4e7hq2eedq06p2oh960dn0vpgh2khdmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAYHqPgeITW0hNAxnyD9PFYwDFp3FMRys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762666484875-4e7hq2eedq06p2oh960dn0vpgh2khdmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
