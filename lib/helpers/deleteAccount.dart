@@ -2,15 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/auth/login.dart';
 
-class passwordChange extends StatefulWidget {
-  const passwordChange({super.key});
+class DeleteAccount extends StatefulWidget {
+  const DeleteAccount({super.key});
 
   @override
-  State<passwordChange> createState() => _passwordChangeState();
+  State<DeleteAccount> createState() => _DeleteAccountState();
 }
 
-class _passwordChangeState extends State<passwordChange> {
+class _DeleteAccountState extends State<DeleteAccount> {
   final TextEditingController _currentPassword = TextEditingController();
   final TextEditingController _newPassword = TextEditingController();
   final TextEditingController _email = TextEditingController();
@@ -18,11 +19,11 @@ class _passwordChangeState extends State<passwordChange> {
 
   var auth = FirebaseAuth.instance;
   var currentUser = FirebaseAuth.instance.currentUser;
-  changePassword({email, oldPassword, newPassword}) async {
+  deleteAccount({email, oldPassword}) async {
     var credentials =
         EmailAuthProvider.credential(email: email, password: oldPassword);
     await currentUser!.reauthenticateWithCredential(credentials).then((value) {
-      currentUser!.updatePassword(newPassword);
+      currentUser!.delete();
     }).catchError((error) {
       print(error.toString());
     });
@@ -33,7 +34,7 @@ class _passwordChangeState extends State<passwordChange> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("Change Password"),
+        title: Text("Delete Account"),
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -77,46 +78,23 @@ class _passwordChangeState extends State<passwordChange> {
           SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              obscureText: !passwordVisible,
-              controller: _newPassword,
-              decoration: InputDecoration(
-                  labelText: "new password",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          passwordVisible = !passwordVisible;
-                        });
-                      },
-                      icon: Icon(passwordVisible
-                          ? Icons.visibility_off
-                          : Icons.visibility)),
-                  labelStyle: TextStyle(color: Color.fromARGB(255, 14, 13, 13)),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 1, color: Color.fromARGB(255, 175, 2, 152))),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 1, color: Color.fromARGB(255, 1, 170, 4)))),
-            ),
-          ),
           SizedBox(
             height: 10,
           ),
           ElevatedButton(
               onPressed: () {
-                changePassword(
-                    email: _email.text,
-                    oldPassword: _currentPassword.text,
-                    newPassword: _newPassword.text);
+                deleteAccount(
+                  email: _email.text,
+                  oldPassword: _currentPassword.text,
+                );
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text("Password Changed"),
+                  content: Text("Account Deleted"),
                   backgroundColor: Colors.amber,
                 ));
               },
-              child: Text("Change Password"))
+              child: Text("Delete Account"))
         ]),
       ),
     );

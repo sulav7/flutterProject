@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/signUp.dart';
 
@@ -25,9 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text(
             "Welcome",
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
@@ -40,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: TextField(
               controller: _email,
               decoration: InputDecoration(
-                  labelText: "Username",
+                  labelText: "email",
                   labelStyle: TextStyle(color: Color.fromARGB(255, 14, 13, 13)),
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -81,55 +77,53 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(
             height: 10,
           ),
-          
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
                 primary: Color.fromARGB(255, 24, 125, 27),
                 elevation: 20,
                 onPrimary: Colors.white,
                 shadowColor: Color.fromARGB(255, 12, 133, 60),
                 minimumSize: Size(150, 50)),
-              onPressed: () async {
-                final message = await AuthService().login(
-                  email: _email.text,
-                  password: _password.text,
-                );
-                if (message!.contains('Success')) {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
-                  );
-                }
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(message),
+            onPressed: () async {
+              final message = await AuthService().login(
+                email: _email.text,
+                password: _password.text,
+              );
+              if (message!.contains('Success')) {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
                   ),
                 );
-              },
-              child: const Text('Login'),
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            Row(
+              }
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                ),
+              );
+            },
+            child: const Text('Login'),
+          ),
+          const SizedBox(
+            height: 30.0,
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Don't have an account ?"),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const CreateAccount(),
-                  ),
-                );
-              },
-              child: const Text('Sign Up'),
-            ),
-          ],
-        ),
-         ] ),
-          
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const CreateAccount(),
+                    ),
+                  );
+                },
+                child: const Text('Sign Up'),
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }

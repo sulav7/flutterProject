@@ -12,23 +12,23 @@ class FruitWidget extends StatelessWidget {
     // const image2 = "";
     // const image3= "https://t3.ftcdn.net/jpg/03/74/46/68/360_F_374466842_siU3zJ6Iyw9nlNk4ABnF5AhzRE2q8U0q.jpg";
     // const image4 = "https://us.123rf.com/450wm/kariphoto/kariphoto1803/kariphoto180300060/kariphoto180300060.jpg?ver=6";
-    List<String> vegetableImage = [
+    List<String> fruitImage = [
       "https://us.123rf.com/450wm/cepn/cepn2009/cepn200900020/cepn200900020.jpg?ver=6",
       "https://thumbs.dreamstime.com/b/isolated-apricot-whole-single-fruit-leaf-white-background-fresh-closeup-217057750.jpg",
       "https://i.pinimg.com/736x/81/6d/cc/816dcc925a14ec91bc2258b883090c93.jpg",
       "https://demo.lite.yogrowcer.com/image/catalog/category/Fruits/Papaya.jpg",
       "https://c8.alamy.com/comp/KXD2P5/isolated-fruits-one-whole-mango-fruit-isolated-on-white-background-KXD2P5.jpg",
-      "https://c8.alamy.com/comp/KXD2P5/isolated-fruits-one-whole-mango-fruit-isolated-on-white-background-KXD2P5.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Avocado_Hass_-_single_and_halved.jpg/640px-Avocado_Hass_-_single_and_halved.jpg"
     ];
-    List<String> vegetableName = [
-      "Onion",
-      "Cauliflower",
-      "Potato",
-      "Tomato",
-      "Cucumber",
-      "Cauliflower"
+    List<String> fruitName = [
+      "Banana",
+      "Orange",
+      "Stwraberry",
+      "Papaya",
+      "Mango",
+      "avacado"
     ];
-    List<int> vegetablePrice = [50, 60, 30, 20, 60, 80];
+    List<int> fruitPrice = [50, 60, 30, 20, 60, 80];
     List _cartItems = [];
 
     return Scaffold(
@@ -37,11 +37,11 @@ class FruitWidget extends StatelessWidget {
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, crossAxisSpacing: 20),
-          itemCount: vegetableName.length,
+          itemCount: fruitName.length,
           itemBuilder: (context, index) {
             return GridTile(
               child: Image.network(
-                vegetableImage[index],
+                fruitImage[index],
                 width: 200,
                 height: 200,
                 fit: BoxFit.fitWidth,
@@ -50,7 +50,7 @@ class FruitWidget extends StatelessWidget {
                 backgroundColor: Colors.white,
                 title: Row(
                   children: [
-                    Text(vegetableName[index],
+                    Text(fruitName[index],
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,
@@ -61,7 +61,7 @@ class FruitWidget extends StatelessWidget {
                   ],
                 ),
                 subtitle: Text(
-                  vegetablePrice[index].toString(),
+                  fruitPrice[index].toString(),
                   style: TextStyle(
                     color: Colors.black,
                   ),

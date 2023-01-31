@@ -12,21 +12,14 @@ class OthersWidget extends StatelessWidget {
     // const image3= "https://t3.ftcdn.net/jpg/03/74/46/68/360_F_374466842_siU3zJ6Iyw9nlNk4ABnF5AhzRE2q8U0q.jpg";
     // const image4 = "https://us.123rf.com/450wm/kariphoto/kariphoto1803/kariphoto180300060/kariphoto180300060.jpg?ver=6";
     final vegetableImage = [
-      "https://png.pngtree.com/png-vector/20201022/ourlarge/pngtree-three-nutritious-dried-fruit-almonds-png-image_2372741.jpg",
-      "https://thumbs.dreamstime.com/b/isolated-apricot-whole-single-fruit-leaf-white-background-fresh-closeup-217057750.jpg",
-      "https://previews.123rf.com/images/nbvf/nbvf1608/nbvf160805953/61759782-single-dried-apricot-fruit-isolated-over-the-white-background.jpg",
-      "https://demo.lite.yogrowcer.com/image/catalog/category/Fruits/Papaya.jpg",
-      "https://c8.alamy.com/comp/KXD2P5/isolated-fruits-one-whole-mango-fruit-isolated-on-white-background-KXD2P5.jpg",
-      "https://c8.alamy.com/comp/KXD2P5/isolated-fruits-one-whole-mango-fruit-isolated-on-white-background-KXD2P5.jpg"
+      "https://www.anandhagrocery.com/wp-content/uploads/2021/06/Golden-Raisins-Kishmish-Indian-Online-1200x1200.jpeg",
+      "https://img1.exportersindia.com/product_images/bc-small/2021/1/8026700/cashew-j-h-natural-nuts-happy-foods-1610681990-5690375.jpeg",
+      "https://static-01.daraz.com.np/p/eaf3f76f2ca7f1013ee2f7df171bdf11.jpg",
+      "https://cdn.shopify.com/s/files/1/0532/0405/8272/products/almonds-regular.jpg?v=1612532758",
+      "https://5.imimg.com/data5/ANDROID/Default/2021/5/SN/OL/KB/30159283/product-jpeg-500x500.jpg",
+      "https://c8.alamy.com/comp/2F5MERJ/chickpea-also-know-as-chana-daal-in-a-white-white-little-bowl-isolated-on-white-background-2F5MERJ.jpg",
     ];
-    final vegetableName = [
-      "Onion",
-      "Cauliflower",
-      "Potato",
-      "Tomato",
-      "Cucumber",
-      "Cauliflower"
-    ];
+    final vegetableName = ["kishmis", "kaju", "okhar", "badam", "teel", "daal"];
     final vegetablePrice = [50, 60, 30, 20, 60, 80];
     return Scaffold(
       // body: ListView.separated(separatorBuilder:(context, index) => Divider(
